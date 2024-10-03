@@ -107,7 +107,7 @@
       "projectType": "library",
       "root": "libs/common/cdk",
       "sourceRoot": "libs/common/cdk/src",
-      "prefix": "lib",
+      "prefix": "jbx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

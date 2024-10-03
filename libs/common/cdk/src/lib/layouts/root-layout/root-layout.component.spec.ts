@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JbxButtonComponent } from './jbx-button.component';
+import { RootLayoutComponent } from './root-layout.component';
 
-describe('JbxButtonComponent', () => {
-  let component: JbxButtonComponent;
-  let fixture: ComponentFixture<JbxButtonComponent>;
+describe('RootLayoutComponent', () => {
+  let component: RootLayoutComponent;
+  let fixture: ComponentFixture<RootLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JbxButtonComponent]
+      imports: [RootLayoutComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JbxButtonComponent);
+    fixture = TestBed.createComponent(RootLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

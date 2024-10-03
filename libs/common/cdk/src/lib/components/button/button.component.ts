@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { JbxComponentBase } from '../base/jbx-component-base.component';
+import { ComponentBase } from '../base/component-base.component';
 
 @Component({
   selector: 'jbx-button',
   standalone: true,
   imports: [ButtonModule],
-  templateUrl: './jbx-button.component.html'
+  templateUrl: './button.component.html'
 })
 /**
  * @description This is a custom button component that extends the JbxComponentBase class.
  */
-export class JbxButtonComponent extends JbxComponentBase {
+export class ButtonComponent extends ComponentBase {
   @Input({ required: true }) label: string = '';
 }

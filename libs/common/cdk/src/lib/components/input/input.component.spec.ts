@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JbxInputComponent } from './jbx-input.component';
+import { JbxInputComponent } from './input.component';
 
 describe('JbxInputComponent', () => {
   let component: JbxInputComponent;

@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { JbxButtonComponent, JbxInputComponent, ThemeColor, ThemeManager } from '@common/cdk';
+import { ButtonComponent, InputComponent, RootLayoutComponent, ThemeColor, ThemeManager } from '@common/cdk';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JbxButtonComponent, JbxInputComponent],
+  imports: [RouterOutlet,RootLayoutComponent, ButtonComponent, InputComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

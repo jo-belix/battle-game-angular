@@ -1,7 +1,11 @@
-<jbx-button [id]="'start_button'" [dataTestId]="'start_button'" i18n-ariaLabel [ariaLabel]="'Start a new game'"
-    i18n-label [label]="'Start new game'">
-</jbx-button>
+<jbx-root-layout [ariaLabel]="'Root container'">
 
-<jbx-input [id]="'username_input'" [dataTestId]="'username_input'" i18n-ariaLabel [ariaLabel]="'Username'" i18n-label [label]="'Nom utilisateur'"></jbx-input>
+    <jbx-button [id]="'start_button'" [dataTestId]="'start_button'" i18n-ariaLabel [ariaLabel]="'Start a new game'"
+        i18n-label [label]="'Start new game'">
+    </jbx-button>
 
-<router-outlet />
+    <jbx-input [id]="'username_input'" [dataTestId]="'username_input'" i18n-ariaLabel [ariaLabel]="'Username'"
+        i18n-label [label]="'Nom utilisateur'"></jbx-input>
+
+    <router-outlet />
+</jbx-root-layout>

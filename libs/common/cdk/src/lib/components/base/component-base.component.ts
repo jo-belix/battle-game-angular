@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-    selector: 'lib-component-base',
+    selector: 'jbx-component-base',
     standalone: true,
     imports: [],
     template: ''
@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
   /**
    * @description Component base class that all components should extend.
    */
-  export abstract class JbxComponentBase {
+  export abstract class ComponentBase {
     @Input({ required: true }) id: string = '';
     @Input({ required: true }) dataTestId: string = '';
     @Input({ required: true }) ariaLabel: string = '';
