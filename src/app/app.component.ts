@@ -26,4 +26,8 @@ export class AppComponent {
     this.themeManager.configureTheme(ThemeColor.orange);
   }
 
+  protected onThemeColorSelectionButtonValueChange(value: ThemeColor): void {
+    this.themeManager.configureTheme(value);
+  }
+
 }

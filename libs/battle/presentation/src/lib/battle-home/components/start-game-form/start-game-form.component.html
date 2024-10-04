@@ -1,0 +1,27 @@
+<form>
+    <jbx-form-layout [ariaLabel]="'Start new game form'">
+        <ng-container>
+            <jbx-input
+                [id]="'username_input'"
+                [dataTestId]="'username_input'"
+                i18n-ariaLabel
+                [ariaLabel]="'Username'"
+                i18n-label
+                [label]="'Nom utilisateur'"
+            >
+            </jbx-input>
+        </ng-container>
+
+        <ng-container buttons>
+            <jbx-button
+                [id]="'start_button'"
+                [dataTestId]="'start_button'"
+                i18n-ariaLabel
+                [ariaLabel]="'Start a new game'"
+                i18n-label
+                [label]="'Lancer une nouvelle partie'"
+            >
+            </jbx-button>
+        </ng-container>
+    </jbx-form-layout>
+</form>

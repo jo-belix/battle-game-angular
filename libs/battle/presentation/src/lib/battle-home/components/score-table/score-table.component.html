@@ -1,0 +1,13 @@
+@defer(when games()) {
+
+@for (game of games(); track game.id; let idx = $index, e = $even) {
+<div>
+    @for (score of game.scores; track $index) {
+    <span> {{score.player.name}} : {{score.score}} </span>
+    }
+</div>
+}
+
+} @loading {
+<span i18n>Chargement...</span>
+}

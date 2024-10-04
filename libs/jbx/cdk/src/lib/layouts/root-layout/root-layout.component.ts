@@ -4,8 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'jbx-root-layout',
   standalone: true,
   imports: [],
-  templateUrl: './root-layout.component.html',
-  styleUrl: './root-layout.component.css'
+  templateUrl: './root-layout.component.html'
 })
 export class RootLayoutComponent {
 

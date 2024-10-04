@@ -13,7 +13,7 @@ import { ComponentBase } from '../base/component-base.component';
  */
 export class InputComponent extends ComponentBase {
 
-  @Input({ required: true }) label: string = '';
+  @Input({ required: true }) label!: string;
   @Input({ required: false }) helpText: string = '';
 
 }

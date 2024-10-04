@@ -12,5 +12,5 @@ import { ComponentBase } from '../base/component-base.component';
  * @description Button component (A wrapper around a FramworkUI button component)
  */
 export class ButtonComponent extends ComponentBase {
-  @Input({ required: true }) label: string = '';
+  @Input({ required: true }) label!: string;
 }
