@@ -4,8 +4,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@common/cdk": [
-        "./libs/common/cdk/src/public-api.ts"
+      "@jbx/cdk": [
+        "./libs/jbx/cdk/src/public-api.ts"
       ]
     },
     "outDir": "./dist/out-tsc",

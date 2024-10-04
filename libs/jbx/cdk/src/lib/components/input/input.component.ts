@@ -9,7 +9,7 @@ import { ComponentBase } from '../base/component-base.component';
   templateUrl: './input.component.html'
 })
 /**
- * @description This is a custom input component that extends the JbxComponentBase class.
+ * @description Input component (A wrapper around a FramworkUI inputText component)
  */
 export class InputComponent extends ComponentBase {
 

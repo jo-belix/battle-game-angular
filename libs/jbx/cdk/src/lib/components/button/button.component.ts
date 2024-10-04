@@ -9,7 +9,7 @@ import { ComponentBase } from '../base/component-base.component';
   templateUrl: './button.component.html'
 })
 /**
- * @description This is a custom button component that extends the JbxComponentBase class.
+ * @description Button component (A wrapper around a FramworkUI button component)
  */
 export class ButtonComponent extends ComponentBase {
   @Input({ required: true }) label: string = '';
