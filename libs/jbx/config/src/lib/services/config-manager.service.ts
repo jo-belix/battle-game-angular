@@ -1,6 +1,13 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Config } from '../models/config.model';
 
+
+/**
+ * @description Token for the app config
+ */
+export const CONFIG = new InjectionToken<Config>('CONFIG')
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,9 +16,7 @@ import { Config } from '../models/config.model';
  */
 export class ConfigManager {
 
-  public static readonly ConfigInjectionToken = new InjectionToken<Config>('CONFIG')
-
-  constructor(@Inject(ConfigManager.ConfigInjectionToken) private readonly config: Config) {
+  constructor(@Inject(CONFIG) private readonly config: Config) {
   }
 
   /**

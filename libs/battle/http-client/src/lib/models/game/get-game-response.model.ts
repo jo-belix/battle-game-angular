@@ -5,5 +5,5 @@ import { ScoreDto } from "./score-dto.model";
  */
 export interface GetGameResponse {
     id: number;
-    score: ScoreDto[];
+    scores: ScoreDto[];
 }

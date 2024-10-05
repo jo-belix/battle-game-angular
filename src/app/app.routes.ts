@@ -12,6 +12,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        loadChildren: () => import('@jbx/cdk').then(m => m.PageNotFoundComponent)
+        loadComponent: () => import('@jbx/cdk').then(m => m.PageNotFoundComponent)
     }
 ];

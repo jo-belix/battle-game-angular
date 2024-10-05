@@ -1,13 +1,25 @@
-@defer(when games()) {
-
-@for (game of games(); track game.id; let idx = $index, e = $even) {
+@defer(when games().length > 0) {
 <div>
-    @for (score of game.scores; track $index) {
-    <span> {{score.player.name}} : {{score.score}} </span>
-    }
+    <p-table 
+    [value]="games()" 
+    showGridlines 
+    [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr >
+                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-end">Joueur1</span></th>
+                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-center">Score</span></th>
+                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }">Joueur2</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-game>
+            <tr>
+                <td><span class="flex justify-end">{{ game.scores[0].player.name }}</span></td>
+                <td><span class="flex justify-center">{{ game.scores[0].score }} - {{ game.scores[1].score }}</span></td>
+                <td>{{ game.scores[1].player.name }}</td>
+            </tr>
+        </ng-template>
+</p-table>
 </div>
-}
-
-} @loading {
+} @placeholder {
 <span i18n>Chargement...</span>
 }

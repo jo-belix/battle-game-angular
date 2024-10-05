@@ -20,7 +20,7 @@ export class GameMapper {
   public mapFromGetGameResponse(getGameResponse: GetGameResponse, players: Player[]): Game {
 
     const scores: Score[] = [];
-    getGameResponse.score.forEach((scoreDto: ScoreDto) => {
+    getGameResponse.scores.forEach((scoreDto: ScoreDto) => {
       scores.push(this.scoreMapper.mapFromScoreDto(scoreDto, players));
     });
 

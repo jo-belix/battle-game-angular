@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authenticationInterceptor } from '@jbx/authentication';
 
 export const appConfig: ApplicationConfig = {
@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authenticationInterceptor])),
+    provideHttpClient(withInterceptors([authenticationInterceptor]), withFetch()),
     provideClientHydration(),
     ]
 };

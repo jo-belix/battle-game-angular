@@ -1,4 +1,4 @@
-import { KeyValuePipe } from '@angular/common';
+import { KeyValuePipe, NgStyle } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonComponent, InputComponent, RootLayoutComponent, SelectButtonComponent, ThemeColor, ThemeManager } from '@jbx/cdk';
@@ -6,7 +6,7 @@ import { ButtonComponent, InputComponent, RootLayoutComponent, SelectButtonCompo
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RootLayoutComponent, ButtonComponent, InputComponent, SelectButtonComponent, KeyValuePipe],
+  imports: [RouterOutlet, RootLayoutComponent, ButtonComponent, InputComponent, SelectButtonComponent, KeyValuePipe, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
