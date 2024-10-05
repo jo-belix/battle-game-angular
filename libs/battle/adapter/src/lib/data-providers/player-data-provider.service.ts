@@ -1,6 +1,6 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { IPlayerDataProvider, Player } from '@battle/domain';
-import { PlayerHttpClient } from '@battle/http-client';
+import { PlayerHttpClient, PostPlayerRequest } from '@battle/http-client';
 import { PlayerMapper } from '../mappers/player-mapper.service';
 
 @Injectable({
@@ -22,6 +22,17 @@ export class PlayerDataProvider implements IPlayerDataProvider {
     this.playerHttpClient.getPlayers()
       .subscribe((players) => {
         this.players.set(this.playerMapper.mapFromGetPlayerResponses(players));
+      });
+  }
+
+  /**
+   * @description Add a player
+   * @param name 
+   */
+  public addPlayer(name: string): void {
+    this.playerHttpClient.postPlayer(new PostPlayerRequest(name))
+      .subscribe((player) => {
+        this.players.set([...this.players(), this.playerMapper.mapFromPostPlayerResponse(player)]);
       });
   }
 

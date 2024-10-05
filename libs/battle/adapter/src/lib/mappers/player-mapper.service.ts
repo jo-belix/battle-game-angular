@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Player } from '@battle/domain';
-import { GetPlayerResponse } from '@battle/http-client';
+import { GetPlayerResponse, PostPlayerResponse } from '@battle/http-client';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,14 @@ export class PlayerMapper {
   public mapFromGetPlayerResponses(getPlayerResponses: GetPlayerResponse[]): Player[] {
     return getPlayerResponses.map((getPlayerResponse) => this.mapFromGetPlayerResponse(getPlayerResponse));
   }
+
+    /**
+   * @description Maps a player
+   * @param postPlayerResponse 
+   * @returns 
+   */
+    public mapFromPostPlayerResponse(postPlayerResponse: PostPlayerResponse): Player {
+      return new Player(postPlayerResponse.id, postPlayerResponse.name);
+    }
  
 }
