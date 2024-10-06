@@ -27,4 +27,12 @@ export class ConfigManager {
     return `${this.config.apiUrl}/${version}/${controllerName}`;
   }
 
+  /**
+   * @description Get the token
+   * @returns 
+   */
+  public getToken(): string {
+    return this.config.token;
+  }
+
 }

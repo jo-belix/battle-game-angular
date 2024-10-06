@@ -6,7 +6,7 @@
 
 - Dans un contexte prod, l'url des apis doit être configuré dans le fichier `assets/config/config.json`. Mais étant donné les soucis de CORS (Cf. plus bas), en dev, il faut laisser le fichier config.json tel quel et modifier le **target** dans `src/proxy.conf.json`
 
-
+- Pour ce qui est du token, pour des raisons de facilité (surtout pas de sécurité ^^), le token est à renseigner dans le fichier `assets/config/config.json`.
 
 # Stack
 

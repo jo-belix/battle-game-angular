@@ -1,4 +1,6 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest } from "@angular/common/http";
+import { inject } from "@angular/core";
+import { ConfigManager } from "@jbx/config";
 import { Observable } from "rxjs";
 
 /**
@@ -9,7 +11,8 @@ import { Observable } from "rxjs";
  */
 export function authenticationInterceptor(request: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
 
-    const token = 'JobelixToken2024!'
+    const configManager: ConfigManager = inject(ConfigManager);
+    const token = configManager.getToken();
     if (token) {
         return next(request.clone({
             headers: request.headers.set('Authorization', token)

@@ -5,7 +5,8 @@ import { Config } from '../models/config.model';
 describe('ConfigManager', () => {
   let service: ConfigManager;
   const mockConfig: Config = {
-    apiUrl: 'http://example.com/api'
+    apiUrl: 'http://example.com/api',
+    token: 'mock-token'
   };
 
   beforeEach(() => {
@@ -23,12 +24,13 @@ describe('ConfigManager', () => {
   });
 
   it('should return the correct API URL', () => {
-    //Arrange
-    const controllerName = 'users';
+    const controllerName = 'testController';
     const version = 'v1';
-    const expectedUrl = 'http://example.com/api/v1/users';
-    
-    // Act/Assert
+    const expectedUrl = `${mockConfig.apiUrl}/${version}/${controllerName}`;
     expect(service.getApiUrl(controllerName, version)).toBe(expectedUrl);
+  });
+
+  it('should return the correct token', () => {
+    expect(service.getToken()).toBe(mockConfig.token);
   });
 });
