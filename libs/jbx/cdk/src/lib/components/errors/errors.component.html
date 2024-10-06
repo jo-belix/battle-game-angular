@@ -1,0 +1,8 @@
+@if (formControlNg.errors &&  (formControlNg.dirty || formControlNg.touched)) {
+@if (formControlNg.errors['required']) {
+<span
+    class="text-sm text-red-500" 
+    i18n
+>Ce champ est obligatoire</span>
+}
+}

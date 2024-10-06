@@ -1,0 +1,49 @@
+@defer (when startGameFormBuilder.formGroup() !== null) {
+<form class="flex flex-col gap-8 test-lg"
+    [formGroup]="startGameFormBuilder.formGroup()!"
+    (ngSubmit)="onSubmit()"
+>
+    <span i18n [ngStyle]="{color: 'var(--p-primary-color)'}" class="text-lg">Commencer une nouvelle partie</span>
+    <jbx-form-layout [ariaLabel]="'Start new game form'">
+        <ng-container>
+            <jbx-input
+                [id]="'username_input'"
+                [dataTestId]="'username_input'"
+                i18n-ariaLabel
+                [ariaLabel]="'Username'"
+                i18n-label
+                [label]="'Nom joueur 1'"
+                [formControlName]="StartGameFormControls.PlayerOneName"
+            >
+            <jbx-errors [formControlNg]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerOneName]!"></jbx-errors>
+            </jbx-input>
+
+            <jbx-input
+                [id]="'username_input'"
+                [dataTestId]="'username_input'"
+                i18n-ariaLabel
+                [ariaLabel]="'Username'"
+                i18n-label
+                [label]="'Nom joueur 2'"
+                [formControlName]="StartGameFormControls.PlayerTwoName"
+            >
+            <jbx-errors [formControlNg]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerTwoName]!"></jbx-errors>
+            </jbx-input>
+
+        </ng-container>
+
+        <ng-container buttons>
+            <jbx-button
+                [id]="'start_button'"
+                [dataTestId]="'start_button'"
+                i18n-ariaLabel
+                [ariaLabel]="'Start a new game'"
+                i18n-label
+                [label]="'Lancer une nouvelle partie'"
+                (onClick)="onSubmit()"
+            >
+            </jbx-button>
+        </ng-container>
+    </jbx-form-layout>
+</form>
+}

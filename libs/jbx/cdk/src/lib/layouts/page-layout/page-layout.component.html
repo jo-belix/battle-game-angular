@@ -1,0 +1,11 @@
+<article aria-describedby="ariaLabel" class="p-4 flex flex-col gap-4">
+    <header>
+        <ng-content select="[header]"></ng-content>
+    </header>
+    <section class="flex-1">
+        <ng-content></ng-content>
+    </section>
+    <footer>
+        <ng-content select="[footer]"></ng-content>
+    </footer>    
+</article>

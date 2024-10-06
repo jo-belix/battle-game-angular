@@ -1,0 +1,26 @@
+@defer(when games().length > 0) {
+<div class="flex flex-col gap-8 test-lg">
+    <span i18n [ngStyle]="{color: 'var(--p-primary-color)'}" class="text-lg">Historique des scores</span>
+    <p-table 
+    [value]="games()" 
+    showGridlines 
+    [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr >
+                <th id="player-one" i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-end">Joueur1</span></th>
+                <th id="score"i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-center">Score</span></th>
+                <th id="player-two"i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }">Joueur2</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-game>
+            <tr>
+                <td><span class="flex justify-end">{{ game.scores[0].player.name }}</span></td>
+                <td><span class="flex justify-center">{{ game.scores[0].score }} - {{ game.scores[1].score }}</span></td>
+                <td>{{ game.scores[1].player.name }}</td>
+            </tr>
+        </ng-template>
+</p-table>
+</div>
+} @placeholder {
+<span i18n>Chargement de l'historique des scores...</span>
+}

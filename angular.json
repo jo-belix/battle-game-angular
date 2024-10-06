@@ -21,7 +21,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -29,6 +30,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "./src/assets",
+                "output": "./assets"
               }
             ],
             "styles": [
@@ -75,6 +81,9 @@
               "buildTarget": "battle-game-angular:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -85,7 +94,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
@@ -103,23 +113,23 @@
         }
       }
     },
-    "@common/cdk": {
+    "@jbx/cdk": {
       "projectType": "library",
-      "root": "libs/common/cdk",
-      "sourceRoot": "libs/common/cdk/src",
+      "root": "libs/jbx/cdk",
+      "sourceRoot": "libs/jbx/cdk/src",
       "prefix": "jbx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "libs/common/cdk/ng-package.json"
+            "project": "libs/jbx/cdk/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/common/cdk/tsconfig.lib.prod.json"
+              "tsConfig": "libs/jbx/cdk/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/common/cdk/tsconfig.lib.json"
+              "tsConfig": "libs/jbx/cdk/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -127,7 +137,238 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "libs/common/cdk/tsconfig.spec.json",
+            "tsConfig": "libs/jbx/cdk/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@battle/http-client": {
+      "projectType": "library",
+      "root": "libs/battle/http-client",
+      "sourceRoot": "libs/battle/http-client/src",
+      "prefix": "btl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/battle/http-client/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/battle/http-client/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/battle/http-client/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/battle/http-client/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@battle/adapter": {
+      "projectType": "library",
+      "root": "libs/battle/adapter",
+      "sourceRoot": "libs/battle/adapter/src",
+      "prefix": "btl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/battle/adapter/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/battle/adapter/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/battle/adapter/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/battle/adapter/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@battle/domain": {
+      "projectType": "library",
+      "root": "libs/battle/domain",
+      "sourceRoot": "libs/battle/domain/src",
+      "prefix": "btl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/battle/domain/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/battle/domain/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/battle/domain/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/battle/domain/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@battle/presentation": {
+      "projectType": "library",
+      "root": "libs/battle/presentation",
+      "sourceRoot": "libs/battle/presentation/src",
+      "prefix": "btl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/battle/presentation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/battle/presentation/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/battle/presentation/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/battle/presentation/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@jbx/http-client": {
+      "projectType": "library",
+      "root": "libs/jbx/http-client",
+      "sourceRoot": "libs/jbx/http-client/src",
+      "prefix": "jbx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/jbx/http-client/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/jbx/http-client/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/jbx/http-client/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/jbx/http-client/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@jbx/config": {
+      "projectType": "library",
+      "root": "libs/jbx/config",
+      "sourceRoot": "libs/jbx/config/src",
+      "prefix": "jbx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/jbx/config/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/jbx/config/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/jbx/config/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/jbx/config/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@jbx/authentication": {
+      "projectType": "library",
+      "root": "libs/jbx/authentication",
+      "sourceRoot": "libs/jbx/authentication/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/jbx/authentication/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/jbx/authentication/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/jbx/authentication/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/jbx/authentication/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

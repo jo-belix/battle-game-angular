@@ -1,12 +1,43 @@
 # BattleGameAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+- Développer en 2 grosses soirées... 
 
+# Configuration pour communiquer avec la couche API
+
+- Dans un contexte prod, l'url des apis doit être configuré dans le fichier `assets/config/config.json`. Mais étant donné les soucis de CORS (Cf. plus bas), en dev, il faut laisser le fichier config.json tel quel et modifier le **target** dans `src/proxy.conf.json`
+
+- Pour ce qui est du token, pour des raisons de facilité (surtout pas de sécurité ^^), le token est à renseigner dans le fichier `assets/config/config.json`.
 
 # Stack
 
 - PrimeNg (Framework UI)
-- Tailwind CSS (Framewor CSS)
+- Tailwind CSS (Framework CSS)
+
+
+# Choix techniques
+
+- Découpe Hexagonale (via libs @battle/xxx), pour clarifier, responsabiliser les éléments... centraliser le métier
+    - http-client : couche communication API
+    - domain : couche contenant les entités du domain, et les règles métiers (Manipulées par la couche présentation)
+    - adapter : couche de liaison entre http-client et domain (avec le mapping...)
+
+- Utilisation de signal pour gérer ben tout, ou quasi, en fait. C'est la première fois que je pousse réellement la mise en pratique, et c'est top... les composants sont vides... la gestion du cache est facile...
+
+- Pas de CSS. Création de composant de layouts... dans le but d'avoir de l'homogénéité entre les écrans. Au pire du css par classe (tailwind css)
+
+- Mise en place de libs @jbx/xxx qui ont pour but de factoriser, les éléments qui ne sont pas liés au métier. Ces librairies seraient à packager (npm)
+
+
+# RAF 
+
+- Pousser les tests
+- Mise en place SortyBook pour le cdk
+- ...
+
+# Galères rencontrées
+
+- Gestion du CORS... que j'ai solutionné en mettant en place un proxy angular.
+
 
 ## Development server
 

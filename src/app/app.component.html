@@ -1,11 +1,21 @@
-<jbx-root-layout [ariaLabel]="'Root container'">
+<jbx-root-layout i18n-title [title]="'Bataille'" i18n-ariaLabel [ariaLabel]="'Root container'">
 
-    <jbx-button [id]="'start_button'" [dataTestId]="'start_button'" i18n-ariaLabel [ariaLabel]="'Start a new game'"
-        i18n-label [label]="'Start new game'">
-    </jbx-button>
+    <ng-container header>
+        <jbx-select-button
+            [id]="'theme-color-select-button'"
+            [dataTestId]="'theme-color-select-button'"
+            i18n-ariaLabel
+            [ariaLabel]="'Select the application theme color'"
+            [options]="ThemeColor | keyvalue"
+            [optionLabel]="'key'"
+            [optionValue]="'value'"
+            [value]="ThemeColor.orange"
+            (valueChange)="onThemeColorSelectionButtonValueChange($event)"
+        >
+        </jbx-select-button>
+    </ng-container>
 
-    <jbx-input [id]="'username_input'" [dataTestId]="'username_input'" i18n-ariaLabel [ariaLabel]="'Username'"
-        i18n-label [label]="'Nom utilisateur'"></jbx-input>
-
-    <router-outlet />
+    <ng-container>
+        <router-outlet />
+    </ng-container>
 </jbx-root-layout>
