@@ -1,8 +1,9 @@
 @defer (when startGameFormBuilder.formGroup() !== null) {
-<form
+<form class="flex flex-col gap-8 test-lg"
     [formGroup]="startGameFormBuilder.formGroup()!"
     (ngSubmit)="onSubmit()"
 >
+    <span i18n [ngStyle]="{color: 'var(--p-primary-color)'}" class="text-lg">Commencer une nouvelle partie</span>
     <jbx-form-layout [ariaLabel]="'Start new game form'">
         <ng-container>
             <jbx-input

@@ -1,5 +1,6 @@
 @defer(when games().length > 0) {
-<div>
+<div class="flex flex-col gap-8 test-lg">
+    <span i18n [ngStyle]="{color: 'var(--p-primary-color)'}" class="text-lg">Historique des scores</span>
     <p-table 
     [value]="games()" 
     showGridlines 
@@ -21,5 +22,5 @@
 </p-table>
 </div>
 } @placeholder {
-<span i18n>Chargement...</span>
+<span i18n>Chargement de l'historique des scores...</span>
 }

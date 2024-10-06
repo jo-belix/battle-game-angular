@@ -4,11 +4,12 @@ import { StartGameFormBuilder } from './form-builder/services/start-game-form-bu
 import { ReactiveFormsModule } from '@angular/forms';
 import { StartGameFormControls } from './form-builder/enums/start-game-form-controls.enum';
 import { ErrorsComponent } from "../../../../../../../jbx/cdk/src/lib/components/errors/errors.component";
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'btl-start-game-form',
   standalone: true,
-  imports: [FormLayoutComponent, InputComponent, ButtonComponent, ReactiveFormsModule, ErrorsComponent],
+  imports: [FormLayoutComponent, InputComponent, ButtonComponent, ReactiveFormsModule, ErrorsComponent, NgStyle],
   templateUrl: './start-game-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
