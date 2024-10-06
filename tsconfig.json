@@ -3,6 +3,32 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@battle/adapter": [
+        "./libs/battle/adapter/src/public-api.ts"
+      ],
+      "@battle/domain": [
+        "./libs/battle/domain/src/public-api.ts"
+      ],
+      "@battle/http-client": [
+        "./libs/battle/http-client/src/public-api.ts"
+      ],
+      "@battle/presentation": [
+        "./libs/battle/presentation/src/public-api.ts"
+      ],
+      "@jbx/authentication": [
+        "./libs/jbx/authentication/src/public-api.ts"
+      ],
+      "@jbx/cdk": [
+        "./libs/jbx/cdk/src/public-api.ts"
+      ],
+      "@jbx/config": [
+        "./libs/jbx/config/src/public-api.ts"
+      ],
+      "@jbx/http-client": [
+        "./libs/jbx/http-client/src/public-api.ts"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

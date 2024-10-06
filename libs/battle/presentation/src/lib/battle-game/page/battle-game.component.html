@@ -1,0 +1,104 @@
+@if(playerManager.playerOne() && playerManager.playerTwo() )
+{
+<article class="flex flex-col">
+    <jbx-responsive-layout>
+        <div class="flex flex-col gap-4 justify-center items-stretch">
+            <div
+                class="flex-1 flex justify-center"
+                [ngStyle]="{backgroundColor: 'var(--p-primary-300)'}"
+            >
+                <div
+                    [ngStyle]="{color:'var(--p-button-primary-color)' }"
+                    class="text-lg"
+                >
+                    {{playerManager.playerOne()?.name}}
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <span
+                    i18n
+                    [ngStyle]="{color: 'var(--p-primary-color)'}"
+                    class="text-base"
+                >Score</span>
+                <span>{{partyManager.scorePlayerOne()}}</span>
+            </div>
+            <div>
+                <span
+                    i18n
+                    [ngStyle]="{color: 'var(--p-primary-color)'}"
+                    class="text-base"
+                >Carte jouée</span>
+                <div>{{partyManager.currentCardPlayerOne()?.value}}</div>
+            </div>
+        </div>
+
+        <div
+            secondary
+            class="flex flex-col gap-4 justify-center items-stretch"
+        >
+            <div
+                class="flex-1 flex justify-center"
+                [ngStyle]="{backgroundColor: 'var(--p-primary-300)'}"
+            >
+                <div
+                    [ngStyle]="{color:'var(--p-button-primary-color)' }"
+                    class="text-lg"
+                >
+                    {{playerManager.playerTwo()?.name}}
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <span
+                    i18n
+                    [ngStyle]="{color: 'var(--p-primary-color)'}"
+                    class="text-base"
+                >Score</span>
+                <span>{{partyManager.scorePlayerTwo()}}</span>
+            </div>
+            <div>
+                <span
+                    i18n
+                    [ngStyle]="{color: 'var(--p-primary-color)'}"
+                    class="text-base"
+                >Carte jouée</span>
+                <div>{{partyManager.currentCardPlayerTwo()?.value}}</div>
+            </div>
+        </div>
+
+    </jbx-responsive-layout>
+    <div class="flex justify-center gap-4">
+        @if(partyManager.deckPlayerOne().length > 0 && partyManager.deckPlayerTwo().length > 0)
+        {
+        <jbx-button
+            id="next-turn"
+            dataTestId="next-turn"
+            ariaLabel="Tour suivant"
+            label="Tour suivant"
+            (onClick)="onNextTurnButtonClick()"
+        >
+        </jbx-button>
+        }
+        @else
+        {
+        <jbx-button
+            id="end-party"
+            dataTestId="end-party"
+            ariaLabel="Fin de la partie"
+            label="Fin de la partie"
+            (onClick)="onEndPartyButtonClick()"
+        >
+        </jbx-button>
+        }
+    </div>
+</article>
+}
+<div class="flex justify-center p-8">
+    <jbx-button
+        id="home"
+        dataTestId="home"
+        ariaLabel="Retour à l'accueil"
+        label="Retour à l'accueil"
+        (onClick)="onHomeButtonClick()"
+    >
+    </jbx-button>
+</div>
