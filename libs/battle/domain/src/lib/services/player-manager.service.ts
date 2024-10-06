@@ -25,6 +25,13 @@ export class PlayerManager {
    * @param namePlayerTwo 
    */
   public setPlayers(namePlayerOne: string, namePlayerTwo : string) {
+    // We add the players if they don't exist
+    if (this.playerDataProvider.players().find(player => player.name === namePlayerOne) === undefined) {
+      this.playerDataProvider.addPlayer(namePlayerOne);
+    }
+    if (this.playerDataProvider.players().find(player => player.name === namePlayerTwo) === undefined) {
+      this.playerDataProvider.addPlayer(namePlayerTwo);
+    }
     this.namePlayerOne.set(namePlayerOne);
     this.namePlayerTwo.set(namePlayerTwo);
   }

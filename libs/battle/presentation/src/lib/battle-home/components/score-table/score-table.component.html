@@ -6,9 +6,9 @@
     [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr >
-                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-end">Joueur1</span></th>
-                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-center">Score</span></th>
-                <th i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }">Joueur2</th>
+                <th id="player-one" i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-end">Joueur1</span></th>
+                <th id="score"i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }"><span class="flex justify-center">Score</span></th>
+                <th id="player-two"i18n [ngStyle]="{backgroundColor: 'var(--p-primary-300)', color:'var(--p-button-primary-color)' }">Joueur2</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-game>

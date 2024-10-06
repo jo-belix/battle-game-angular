@@ -1,13 +1,12 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { Party } from '../models/party.model';
 import { Card } from '../models/card.model';
-import { PlayerParty } from '../models/player-party.model';
-import { Player } from '../models/player.model';
-import { Score } from '../models/score.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+const NB_CARDS : number = 52;
+
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class PartyManager {
 
   public deckPlayerOne: WritableSignal<Card[]> = signal<Card[]>([]);
@@ -17,10 +16,34 @@ export class PartyManager {
   public foldsPlayerTwo: WritableSignal<Card[]> = signal<Card[]>([]);
 
   public currentCardPlayerOne: WritableSignal<Card | null> = signal<Card | null>(null);
-  public curentCardPlayerTwo: WritableSignal<Card | null> = signal<Card | null>(null);
+  public currentCardPlayerTwo: WritableSignal<Card | null> = signal<Card | null>(null);
 
   public scorePlayerOne: WritableSignal<number> = signal<number>(0);
   public scorePlayerTwo: WritableSignal<number> = signal<number>(0);
+
+/**
+ * @description Initialize party
+ */
+  public initializeParty(): void {
+
+    // this.resetParty();
+    this.dealCards();
+
+  }
+
+  /**
+   * @description Reset party
+   */
+  private resetParty(): void {
+    this.deckPlayerOne.set([]);
+    this.deckPlayerTwo.set([]);
+    this.foldsPlayerOne.set([]);
+    this.foldsPlayerTwo.set([]);
+    this.currentCardPlayerOne.set(null);
+    this.currentCardPlayerTwo.set(null);
+    this.scorePlayerOne.set(0);
+    this.scorePlayerTwo.set(0);
+  }
 
   /**
     * @description Deal cards to players
@@ -28,15 +51,18 @@ export class PartyManager {
     * @param playerOneParty 
     * @param playerTwoParty 
     */
-  public dealCards(): void {
+  private dealCards(): void {
 
     // Get game cards
     const gameCards = this.getGameCards();
 
-
     // Deal cards
     const deskPlayerOne = [];
     const deskPlayerTwo = [];
+
+    //distribuer au hasard les cartes
+    gameCards.sort(() => Math.random() - 0.5);
+
     for (let i = 0; i < gameCards.length; i++) {
       if (i % 2 === 0) {
         deskPlayerOne.push(gameCards[i]);
@@ -48,6 +74,9 @@ export class PartyManager {
     this.deckPlayerTwo.set(deskPlayerTwo);
   }
 
+  /**
+   * @description Play next card
+   */
   public playNextCard(): void {
 
     // We get the cards from the players
@@ -65,10 +94,10 @@ export class PartyManager {
 
       // Update the current cards
       this.currentCardPlayerOne.set(cardPlayerOne);
-      this.curentCardPlayerTwo.set(cardPlayerTwo);
+      this.currentCardPlayerTwo.set(cardPlayerTwo);
 
       // Resolve the battle
-      this.resolveBattme(cardPlayerOne, cardPlayerTwo);
+      this.resolveBattle(cardPlayerOne, cardPlayerTwo);
     }
 
   }
@@ -78,7 +107,7 @@ export class PartyManager {
    * @param cardPlayerOne 
    * @param cardPlayerTwo 
    */
-  private resolveBattme(cardPlayerOne: Card, cardPlayerTwo: Card): void {
+  private resolveBattle(cardPlayerOne: Card, cardPlayerTwo: Card): void {
     if (cardPlayerOne.value > cardPlayerTwo.value) {
       this.scorePlayerOne.set(this.scorePlayerOne() + 1);
     } else if (cardPlayerOne.value < cardPlayerTwo.value) {
@@ -96,7 +125,7 @@ export class PartyManager {
   private getGameCards(): Card[] {
     // Get game cards
     var cards: Card[] = [];
-    for (let i = 0; i < 52; i++) {
+    for (let i = 1; i <= NB_CARDS; i++) {
       cards.push(new Card(i.toString(), i));
     }
     return cards;

@@ -3,9 +3,7 @@ import { IPlayerDataProvider, Player } from '@battle/domain';
 import { PlayerHttpClient, PostPlayerRequest } from '@battle/http-client';
 import { PlayerMapper } from '../mappers/player-mapper.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PlayerDataProvider implements IPlayerDataProvider {
 
   // Injects
@@ -19,10 +17,12 @@ export class PlayerDataProvider implements IPlayerDataProvider {
    * @description Load players
    */
   public loadPlayers(): void {
-    this.playerHttpClient.getPlayers()
-      .subscribe((players) => {
-        this.players.set(this.playerMapper.mapFromGetPlayerResponses(players));
-      });
+    if (this.players().length === 0) {
+      this.playerHttpClient.getPlayers()
+        .subscribe((players) => {
+          this.players.set(this.playerMapper.mapFromGetPlayerResponses(players));
+        });
+    }
   }
 
   /**

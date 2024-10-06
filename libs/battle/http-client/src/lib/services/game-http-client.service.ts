@@ -38,7 +38,7 @@ export class GameHttpClient {
    * @returns Observable<PostGameResponse>
    */
   public postGame(postGameRequest: PostGameRequest): Observable<PostGameResponse> {
-    return this.httpClient.post<PostGameResponse>(`${this.configManagerService.getApiUrl(this.CONTROLLER_NAME, this.VERSION)}`, postGameRequest)
+    return this.httpClient.post<PostGameResponse>(`${this.configManagerService.getApiUrl(this.CONTROLLER_NAME, this.VERSION)}`, postGameRequest.scores)
       .pipe(
         catchError((error) => {
           console.error(error)

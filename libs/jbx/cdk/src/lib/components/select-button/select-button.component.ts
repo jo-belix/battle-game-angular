@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ComponentBase } from '../base/component-base.component';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
   selector: 'jbx-select-button',
   standalone: true,
   imports: [SelectButtonModule,FormsModule],
-  templateUrl: './select-button.component.html'
+  templateUrl: './select-button.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectButtonComponent extends ComponentBase {
 

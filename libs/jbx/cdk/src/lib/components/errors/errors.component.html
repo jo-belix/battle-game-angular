@@ -1,0 +1,8 @@
+@if (formControl.errors &&  (formControl.dirty || formControl.touched)) {
+@if (formControl.errors['required']) {
+<span
+    class="text-sm text-red-500" 
+    i18n
+>Ce champ est obligatoire</span>
+}
+}

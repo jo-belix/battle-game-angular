@@ -8,6 +8,7 @@ export * from './lib/services/theme.manager';
 export * from './lib/components/button/button.component';
 export * from './lib/components/input/input.component';
 export * from './lib/components/select-button/select-button.component';
+export * from './lib/components/errors/errors.component';
 
 export * from './lib/pages/page-not-found/page-not-found.component';
 
