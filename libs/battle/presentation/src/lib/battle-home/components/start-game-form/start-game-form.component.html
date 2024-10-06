@@ -14,7 +14,7 @@
                 [label]="'Nom joueur 1'"
                 [formControlName]="StartGameFormControls.PlayerOneName"
             >
-            <jbx-errors [formControl]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerOneName]!"></jbx-errors>
+            <jbx-errors [formControlNg]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerOneName]!"></jbx-errors>
             </jbx-input>
 
             <jbx-input
@@ -26,7 +26,7 @@
                 [label]="'Nom joueur 2'"
                 [formControlName]="StartGameFormControls.PlayerTwoName"
             >
-            <jbx-errors [formControl]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerTwoName]!"></jbx-errors>
+            <jbx-errors [formControlNg]="startGameFormBuilder.formGroup()!.controls[StartGameFormControls.PlayerTwoName]!"></jbx-errors>
             </jbx-input>
 
         </ng-container>

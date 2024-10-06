@@ -11,5 +11,5 @@ import { FormControl } from '@angular/forms';
  * Display errors for a form control
  */
 export class ErrorsComponent {
-@Input({ required: true }) formControl!: FormControl;
+@Input({ required: true }) formControlNg!: FormControl;
 }

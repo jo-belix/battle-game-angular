@@ -16,12 +16,12 @@
 
 # Choix techniques
 
-- Découpe Hexaguonale (via libs @battle/xxx), pour clarifier, responsabiliser les éléments... centraliser le métier
+- Découpe Hexagonale (via libs @battle/xxx), pour clarifier, responsabiliser les éléments... centraliser le métier
     - http-client : couche communication API
     - domain : couche contenant les entités du domain, et les règles métiers (Manipulées par la couche présentation)
     - adapter : couche de liaison entre http-client et domain (avec le mapping...)
 
-- Utilisation de signal pour gérer ben tout ou quasi, en fait. C'est la première fois que je pousse réellement la mise en pratique, et c'est top... les composants sont vide... la gestion du cache est facile...
+- Utilisation de signal pour gérer ben tout, ou quasi, en fait. C'est la première fois que je pousse réellement la mise en pratique, et c'est top... les composants sont vides... la gestion du cache est facile...
 
 - Pas de CSS. Création de composant de layouts... dans le but d'avoir de l'homogénéité entre les écrans. Au pire du css par classe (tailwind css)
 
