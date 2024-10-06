@@ -66,7 +66,7 @@
         </div>
 
     </jbx-responsive-layout>
-    <div class="flex justify-center gap-4">
+    <div class="flex flex-col justify-center items-center gap-4">
         @if(partyManager.deckPlayerOne().length > 0 && partyManager.deckPlayerTwo().length > 0)
         {
         <jbx-button
@@ -80,6 +80,38 @@
         }
         @else
         {
+        @if(partyManager.scorePlayerOne() > partyManager.scorePlayerTwo())
+        {
+        <span
+            i18n
+            [ngStyle]="{color: 'var(--p-primary-color)'}"
+            class="text-lg"
+        >
+            {{playerManager.playerOne()?.name}} a gagné
+        </span>
+        }
+        @else{
+        @if(partyManager.scorePlayerTwo() > partyManager.scorePlayerOne())
+        {
+        <span
+            i18n
+            [ngStyle]="{color: 'var(--p-primary-color)'}"
+            class="text-lg"
+        >
+            {{playerManager.playerTwo()?.name}} a gagné
+        </span>
+        }
+        @else{
+        <span
+            i18n
+            [ngStyle]="{color: 'var(--p-primary-color)'}"
+            class="text-lg"
+        >
+            Égalité
+        </span>
+        }
+        }
+
         <jbx-button
             id="end-party"
             dataTestId="end-party"
