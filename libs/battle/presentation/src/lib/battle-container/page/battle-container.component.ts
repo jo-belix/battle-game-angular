@@ -11,5 +11,4 @@ import { IPlayerDataProvider } from '@battle/domain';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BattleContainerComponent {
-
 }

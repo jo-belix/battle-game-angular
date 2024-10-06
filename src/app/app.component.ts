@@ -7,8 +7,7 @@ import { ButtonComponent, InputComponent, RootLayoutComponent, SelectButtonCompo
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RootLayoutComponent, ButtonComponent, InputComponent, SelectButtonComponent, KeyValuePipe, NgStyle],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './app.component.html'
 })
 
 

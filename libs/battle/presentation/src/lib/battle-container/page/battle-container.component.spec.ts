@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BattleContainerComponent } from './battle-container.component';
+import '@angular/localize/init';
 
 describe('BattleContainerComponent', () => {
   let component: BattleContainerComponent;

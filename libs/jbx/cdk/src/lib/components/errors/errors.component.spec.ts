@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ErrorsComponent } from './errors.component';
+import '@angular/localize/init';
+import { FormControl } from '@angular/forms';
 
 describe('ErrorsComponent', () => {
   let component: ErrorsComponent;
@@ -10,9 +11,11 @@ describe('ErrorsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ErrorsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ErrorsComponent);
+    fixture.componentInstance.formControlNg = new FormControl();
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

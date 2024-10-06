@@ -18,7 +18,7 @@ export class StartGameFormComponent {
   @Output() startGame: EventEmitter<{ playerOneName: string, playerTwoName: string }> = new EventEmitter<{ playerOneName: string, playerTwoName: string }>();
 
   // Injects
-  protected readonly startGameFormBuilder: StartGameFormBuilder = inject(StartGameFormBuilder);
+  public readonly startGameFormBuilder: StartGameFormBuilder = inject(StartGameFormBuilder);
 
   // Types
   protected readonly StartGameFormControls: typeof StartGameFormControls = StartGameFormControls;

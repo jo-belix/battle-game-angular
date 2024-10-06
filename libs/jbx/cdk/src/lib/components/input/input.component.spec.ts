@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { InputComponent } from './input.component';
+import '@angular/localize/init';
 
-import { JbxInputComponent } from './input.component';
-
-describe('JbxInputComponent', () => {
-  let component: JbxInputComponent;
-  let fixture: ComponentFixture<JbxInputComponent>;
+describe('InputComponent', () => {
+  let component: InputComponent;
+  let fixture: ComponentFixture<InputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JbxInputComponent]
+      imports: [InputComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(JbxInputComponent);
+    fixture = TestBed.createComponent(InputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
